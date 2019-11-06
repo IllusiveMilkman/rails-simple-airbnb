@@ -1,0 +1,74 @@
+ <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Airbnb Light</a>
+  <form class="form-inline" action="/flats/find">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <a href=<%= new_flat_path %>><button id="btnAddFlat" class="btn btn-outline-primary my-2 my-sm-0 ml-2">Add Flat</button></a>
+  </form>
+</nav>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Flats</h1>
+      <p>All <%= @count %> flats</p>
+    </div>
+
+  <div class="row">
+    <!-- For each flat -->
+    <% @flats.each do |flat| %>
+      <div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url(<%= flat.picture_url %>)"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4>Copenhagen bright appartment</h4>
+            </div>
+            <p>Beautiful, for real</p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">people</i><span>4</span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> 135
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <a href="/flats/2522">More info</a>
+            <a class="ml-3 text-warning" href="/flats/2522/edit">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/2522">Remove</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<!-- Backup code
+<div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://www.all-copenhagen-apartments.com/galleri/642/large/01.jpg')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4>Copenhagen bright appartment</h4>
+            </div>
+            <p>Beautiful, for real</p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">people</i><span>4</span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> 135
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <a href="/flats/2522">More info</a>
+            <a class="ml-3 text-warning" href="/flats/2522/edit">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/2522">Remove</a>
+          </div>
+        </div>
+      </div> -->
